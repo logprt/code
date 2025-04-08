@@ -1,23 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Inject final result box (initially hidden)
-    const finalResultHTML = `
-    <div class="quizFinalResult" style="display:none;">
+    // Inject final result box
+    const finalResultHTML = 
+    <div class="quizFinalResult">
         <table>
             <tbody>
-                <tr><td>Total Score</td><td class="score">0</td></tr>
-                <tr><td>Total Questions</td><td class="questions">0</td></tr>
-                <tr><td>Total Attempts</td><td class="attempts">0</td></tr>
-                <tr><td>Correct Attempts</td><td class="correct">0</td></tr>
+                <tr><td>Total Score</td><td>0</td></tr>
+                <tr><td>Total Questions</td><td>0</td></tr>
+                <tr><td>Total Attempts</td><td>0</td></tr>
+                <tr><td>Correct Attempts</td><td>0</td></tr>
             </tbody>
         </table>
-    </div>`;
+    </div>;
     document.body.insertAdjacentHTML("beforeend", finalResultHTML);
 
     let totalScore = 0;
     let correctCount = 0;
+    let incorrectCount = 0;
     let totalAttempts = 0;
-
-    let resultShown = false;
 
     const quizBoxes = document.querySelectorAll(".quizBox");
 
@@ -28,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Auto-number questions
             const questionDiv = quiz.querySelector(".q");
             if (questionDiv) {
-                questionDiv.innerHTML = `<b>${index + 1}</b> ${questionDiv.innerHTML}`;
+                questionDiv.innerHTML = <b>${index + 1}</b> ${questionDiv.innerHTML};
             }
 
             let attempted = false;
@@ -41,13 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     attempted = true;
                     totalAttempts++;
 
-                    // Show the result box only once
-                    if (!resultShown) {
-                        document.querySelector(".quizFinalResult").style.display = "block";
-                        resultShown = true;
-                    }
-
-                    // Always show the correct option
+                    // Always show correct
                     if (correctOption) correctOption.classList.add("correct");
 
                     if (option.classList.contains("c")) {
@@ -56,11 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         correctCount++;
                     } else {
                         option.classList.add("incorrect");
+                        incorrectCount++;
                     }
 
-                    // Mark all options as answered (disable further interaction visually)
                     options.forEach(opt => opt.classList.add("answered"));
-
                     updateFinalResult();
                 });
             });
@@ -68,9 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function updateFinalResult() {
-        document.querySelector(".quizFinalResult .score").innerText = totalScore;
-        document.querySelector(".quizFinalResult .questions").innerText = document.querySelectorAll(".quizBox .quiz").length;
-        document.querySelector(".quizFinalResult .attempts").innerText = totalAttempts;
-        document.querySelector(".quizFinalResult .correct").innerText = correctCount;
+        const final = document.querySelector(".quizFinalResult");
+        const tds = final.querySelectorAll("td");
+        tds[1].innerText = totalScore;
+        tds[3].innerText = document.querySelectorAll(".quizBox .quiz").length;
+        tds[5].innerText = totalAttempts;
+        tds[7].innerText = correctCount;
     }
 });
