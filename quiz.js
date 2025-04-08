@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Inject final result box (hidden by default)
     const finalResultHTML = `
-    <div class="quizFinalResult" style="display:none;">
+    <div class="quizFinalResult" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#f0f0f0; padding:10px; z-index:9999;">
         <table>
             <tbody>
                 <tr><td>Total Score</td><td>0</td></tr>
@@ -56,9 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     // Show final result box
                     const final = document.querySelector(".quizFinalResult");
-                    if (final.style.display === "none") {
-                        final.style.display = "block";
-                    }
+                    final.style.display = "block";
 
                     updateFinalResult();
                 });
