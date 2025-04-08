@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Inject final result box (initially hidden)
+    // Inject final result box
     const finalResultHTML = `
-    <div class="quizFinalResult" style="display:none;">
+    <div class="quizFinalResult">
         <table>
             <tbody>
                 <tr><td>Total Score</td><td>0</td></tr>
@@ -17,8 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let correctCount = 0;
     let incorrectCount = 0;
     let totalAttempts = 0;
-
-    let resultShown = false;
 
     const quizBoxes = document.querySelectorAll(".quizBox");
 
@@ -41,12 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (attempted) return;
                     attempted = true;
                     totalAttempts++;
-
-                    // Show the result box on first attempt
-                    if (!resultShown) {
-                        document.querySelector(".quizFinalResult").style.display = "block";
-                        resultShown = true;
-                    }
 
                     // Always show correct
                     if (correctOption) correctOption.classList.add("correct");
