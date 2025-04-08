@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="quizFinalResult" style="display:none;">
         <table>
             <tbody>
-                <tr><td>Total Score</td><td>0</td></tr>
-                <tr><td>Total Questions</td><td>0</td></tr>
-                <tr><td>Total Attempts</td><td>0</td></tr>
-                <tr><td>Correct Attempts</td><td>0</td></tr>
+                <tr><td>Total Score</td><td class="score">0</td></tr>
+                <tr><td>Total Questions</td><td class="questions">0</td></tr>
+                <tr><td>Total Attempts</td><td class="attempts">0</td></tr>
+                <tr><td>Correct Attempts</td><td class="correct">0</td></tr>
             </tbody>
         </table>
     </div>`;
@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let totalScore = 0;
     let correctCount = 0;
-    let incorrectCount = 0;
     let totalAttempts = 0;
 
     let resultShown = false;
@@ -42,13 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     attempted = true;
                     totalAttempts++;
 
-                    // Show the result box on first attempt
+                    // Show the result box only once
                     if (!resultShown) {
                         document.querySelector(".quizFinalResult").style.display = "block";
                         resultShown = true;
                     }
 
-                    // Always show correct
+                    // Always show the correct option
                     if (correctOption) correctOption.classList.add("correct");
 
                     if (option.classList.contains("c")) {
@@ -57,10 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         correctCount++;
                     } else {
                         option.classList.add("incorrect");
-                        incorrectCount++;
                     }
 
+                    // Mark all options as answered (disable further interaction visually)
                     options.forEach(opt => opt.classList.add("answered"));
+
                     updateFinalResult();
                 });
             });
@@ -68,11 +68,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function updateFinalResult() {
-        const final = document.querySelector(".quizFinalResult");
-        const tds = final.querySelectorAll("td");
-        tds[1].innerText = totalScore;
-        tds[3].innerText = document.querySelectorAll(".quizBox .quiz").length;
-        tds[5].innerText = totalAttempts;
-        tds[7].innerText = correctCount;
+        document.querySelector(".quizFinalResult .score").innerText = totalScore;
+        document.querySelector(".quizFinalResult .questions").innerText = document.querySelectorAll(".quizBox .quiz").length;
+        document.querySelector(".quizFinalResult .attempts").innerText = totalAttempts;
+        document.querySelector(".quizFinalResult .correct").innerText = correctCount;
     }
 });
