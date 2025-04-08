@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Inject final result box (initially hidden)
+    // Inject final result box (hidden by default)
     const finalResultHTML = `
     <div class="quizFinalResult" style="display:none;">
         <table>
@@ -21,12 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const quizBoxes = document.querySelectorAll(".quizBox");
 
     quizBoxes.forEach(quizBox => {
-        // Show result box on click inside quizBox
-        quizBox.addEventListener("click", function () {
-            const final = document.querySelector(".quizFinalResult");
-            final.style.display = "block";
-        });
-
         const quizzes = quizBox.querySelectorAll(".quiz");
 
         quizzes.forEach((quiz, index) => {
@@ -59,6 +53,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
 
                     options.forEach(opt => opt.classList.add("answered"));
+
+                    // Show final result box
+                    const final = document.querySelector(".quizFinalResult");
+                    if (final.style.display === "none") {
+                        final.style.display = "block";
+                    }
+
                     updateFinalResult();
                 });
             });
