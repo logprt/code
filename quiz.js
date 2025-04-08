@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Inject final result box (hidden by default)
     const finalResultHTML = `
-    <div class="quizFinalResult" style="display: none;">
+    <div class="quizFinalResult" style="display:none;">
         <table>
             <tbody>
                 <tr><td>Total Score</td><td>0</td></tr>
@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let totalAttempts = 0;
 
     const quizBoxes = document.querySelectorAll(".quizBox");
-    const finalResultBox = document.querySelector(".quizFinalResult");
 
     quizBoxes.forEach(quizBox => {
         const quizzes = quizBox.querySelectorAll(".quiz");
@@ -41,11 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     attempted = true;
                     totalAttempts++;
 
-                    // Show the result box (on first click)
-                    if (finalResultBox.style.display === "none") {
-                        finalResultBox.style.display = "block";
-                    }
-
                     // Always show correct
                     if (correctOption) correctOption.classList.add("correct");
 
@@ -59,6 +53,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
 
                     options.forEach(opt => opt.classList.add("answered"));
+
+                    // Show final result box
+                    const final = document.querySelector(".quizFinalResult");
+                    if (final.style.display === "none") {
+                        final.style.display = "block";
+                    }
+
                     updateFinalResult();
                 });
             });
@@ -66,7 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function updateFinalResult() {
-        const tds = finalResultBox.querySelectorAll("td");
+        const final = document.querySelector(".quizFinalResult");
+        const tds = final.querySelectorAll("td");
         tds[1].innerText = totalScore;
         tds[3].innerText = document.querySelectorAll(".quizBox .quiz").length;
         tds[5].innerText = totalAttempts;
