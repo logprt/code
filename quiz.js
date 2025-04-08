@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Inject final result box
-    const finalResultHTML = 
-    <div class="quizFinalResult">
+    // Inject final result box (initially hidden)
+    const finalResultHTML = `
+    <div class="quizFinalResult" style="display:none;">
         <table>
             <tbody>
                 <tr><td>Total Score</td><td>0</td></tr>
@@ -10,13 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 <tr><td>Correct Attempts</td><td>0</td></tr>
             </tbody>
         </table>
-    </div>;
+    </div>`;
     document.body.insertAdjacentHTML("beforeend", finalResultHTML);
 
     let totalScore = 0;
     let correctCount = 0;
     let incorrectCount = 0;
     let totalAttempts = 0;
+
+    let resultShown = false;
 
     const quizBoxes = document.querySelectorAll(".quizBox");
 
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Auto-number questions
             const questionDiv = quiz.querySelector(".q");
             if (questionDiv) {
-                questionDiv.innerHTML = <b>${index + 1}</b> ${questionDiv.innerHTML};
+                questionDiv.innerHTML = `<b>${index + 1}</b> ${questionDiv.innerHTML}`;
             }
 
             let attempted = false;
@@ -39,6 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (attempted) return;
                     attempted = true;
                     totalAttempts++;
+
+                    // Show the result box on first attempt
+                    if (!resultShown) {
+                        document.querySelector(".quizFinalResult").style.display = "block";
+                        resultShown = true;
+                    }
 
                     // Always show correct
                     if (correctOption) correctOption.classList.add("correct");
