@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Inject final result box
+    // Inject final result box (initially hidden)
     const finalResultHTML = `
-    <div class="quizFinalResult">
+    <div class="quizFinalResult" style="display:none;">
         <table>
             <tbody>
                 <tr><td>Total Score</td><td>0</td></tr>
@@ -21,6 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const quizBoxes = document.querySelectorAll(".quizBox");
 
     quizBoxes.forEach(quizBox => {
+        // Show result box on click inside quizBox
+        quizBox.addEventListener("click", function () {
+            const final = document.querySelector(".quizFinalResult");
+            final.style.display = "block";
+        });
+
         const quizzes = quizBox.querySelectorAll(".quiz");
 
         quizzes.forEach((quiz, index) => {
