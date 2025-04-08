@@ -1,3 +1,4 @@
+<style>
 .quizBox::before {content: "🏆 Quiz Time"; font-size: 3rem; font-family: fantasy; text-shadow: 2px 2px; color: #ecb14f;}
 .quiz {margin: 3rem 0; font-weight: 900;}
 .quiz .q {background: beige; border-radius: 5px; padding: 1rem; color: black;}
@@ -13,3 +14,4 @@
 @media only screen and (max-width: 600px) {
 
 }
+</style>
