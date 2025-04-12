@@ -1,6 +1,6 @@
 .quizBox::before {content: "🏆 Quiz"; font-size: 3rem; font-family: fantasy; text-shadow: 2px 2px; color: #ecb14f;}
 .quiz {margin: 3rem 0; font-weight: 900; padding: 1rem;}
-.quiz .q {background: beige; border-radius: 5px; padding: 1rem; color: black;}
+.quiz .q {display: inline; color: black;}
 .quiz .q b {background: deeppink; color: white; font-size: 1rem; text-align: center; border-radius: 2px; padding: 0 5px; display: inline;}
 .quiz ul {padding: 0 !important;}
 .quiz li {cursor: pointer; display: block; padding-left: 45px; font-weight: 100; color: black;}
