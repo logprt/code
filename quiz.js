@@ -68,3 +68,41 @@ document.addEventListener("DOMContentLoaded", function () {
         tds[7].innerText = correctCount;
     }
 });
+
+// POPUP Expand Full width Screen
+setTimeout(function () {
+      // Inject stylish popup HTML
+      const popupHTML = `
+        <div class="popup-overlay" id="popup">
+          <div class="popup-box">
+            <h2>Do you want to Practice this Test?</h2>
+            <button class="btn-yes" id="yesBtn">Yes</button>
+            <button class="btn-no" id="noBtn">No</button>
+          </div>
+        </div>
+      `;
+    
+      document.body.insertAdjacentHTML('beforeend', popupHTML);
+    
+      // YES button click
+      document.getElementById('yesBtn').addEventListener('click', function () {
+        const quizDiv = document.querySelector('.quizz');
+        if (quizDiv) {
+          quizDiv.style.width = '100%';
+          quizDiv.style.background = 'white';
+          quizDiv.style.zIndex = '1';
+        }
+        closePopup();
+      });
+    
+      // NO button click
+      document.getElementById('noBtn').addEventListener('click', function () {
+        closePopup();
+      });
+    
+      // Close popup function
+      function closePopup() {
+        const popup = document.getElementById('popup');
+        if (popup) popup.remove();
+      }
+    }, 10000); // 10,000ms = 10 seconds
