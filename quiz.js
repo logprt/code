@@ -106,3 +106,33 @@ setTimeout(function () {
         if (popup) popup.remove();
       }
     }, 10000); // 10,000ms = 10 seconds
+
+
+// // /// //
+// QUIZ 1
+// // /// //
+
+// Add question numbers
+document.querySelectorAll('.quiz1').forEach(quiz => {
+    let count = 1;
+    quiz.querySelectorAll('.q1q').forEach(q => {
+        q.innerHTML = `<b>${count++}</b> ${q.innerHTML}`;
+    });
+});
+
+// Handle option click - correct/incorrect
+document.querySelectorAll('.quiz1 .q1o li').forEach(option => {
+    option.addEventListener('click', function () {
+        // Prevent re-clicking
+        if (this.classList.contains('q1c') || this.classList.contains('q1w')) return;
+
+        const allOptions = this.parentElement.querySelectorAll('li');
+       // allOptions.forEach(opt => opt.style.pointerEvents = 'none'); // Disable all options
+
+        if (this.classList.contains('cq1')) {
+            this.classList.add('q1c'); // Correct
+        } else {
+            this.classList.add('q1w'); // Wrong
+        }
+    });
+});
