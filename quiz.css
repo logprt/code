@@ -1,5 +1,5 @@
 .quizBox::before {content: "🏆 Quiz"; font-size: 3rem; font-family: fantasy; text-shadow: 2px 2px; color: #ecb14f;}
-.quiz {margin: 3rem 0; padding: 1rem;}
+.quiz {margin: 3rem 0; padding: 1rem; box-shadow: 0 0 1rem 0 #ddd;}
 .quiz .q {display: inline; color: black;}
 .quiz .q b:nth-child(1) {display: inline; background: deeppink; color: white; font-size: 1rem; text-align: center; padding: 0 5px;}
 .quiz ul {padding: 0 !important;}
@@ -24,3 +24,12 @@
 
 /* MATHJAX */
 mjx-container[jax="CHTML"][display="true"] {  text-align: center;  display: inline-block; }
+
+/* QUIZ1 */
+.q1 {box-shadow: 0 0 1rem 0 #ddd; padding: 1rem; margin: 2rem 0;}
+.q1o {padding: 0;}
+.q1o li {display: block; cursor: pointer;}
+.q1q b:nth-child(1) {display: inline;   background: black;   color: white;   padding: 0 5px;}
+.q1o li::before {content: "."; display: inline-block;   border: 1px solid #000; height: 1.5rem; width: 1.5rem; margin-right: 1rem; text-align: center; font-size: 1rem; line-height: 1.5rem; color: transparent;}
+.q1c::before {content: "\2713" !important; display: inline-block; background: green; color: white !important;}
+.q1w::before {content: "X" !important; display: inline-block; background: red; color: white !Important;}
