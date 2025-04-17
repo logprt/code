@@ -75,7 +75,7 @@ setTimeout(function () {
       const popupHTML = `
         <div class="popup-overlay" id="popup">
           <div class="popup-box">
-            <h2>Do you want to Practice this Test?</h2>
+            <h2>Do you want to Start this Test?</h2>
             <button class="btn-yes" id="yesBtn">Yes</button>
             <button class="btn-no" id="noBtn">No</button>
           </div>
