@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // FINAL RESULT BOX
+    // Inject final result box
     const finalResultHTML = `
     <div class="quizFinalResult">
         <table>
@@ -15,12 +15,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let totalScore = 0;
     let correctCount = 0;
+    let incorrectCount = 0;
     let totalAttempts = 0;
 
     const quizBoxes = document.querySelectorAll(".quizBox");
+
     quizBoxes.forEach(quizBox => {
         const quizzes = quizBox.querySelectorAll(".quiz");
+
         quizzes.forEach((quiz, index) => {
+            // Auto-number questions
             const questionDiv = quiz.querySelector(".q");
             if (questionDiv) {
                 questionDiv.innerHTML = `<b>${index + 1}</b> ${questionDiv.innerHTML}`;
@@ -36,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     attempted = true;
                     totalAttempts++;
 
+                    // Always show correct
                     if (correctOption) correctOption.classList.add("correct");
 
                     if (option.classList.contains("c")) {
@@ -44,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         correctCount++;
                     } else {
                         option.classList.add("incorrect");
+                        incorrectCount++;
                     }
 
                     options.forEach(opt => opt.classList.add("answered"));
@@ -54,57 +60,84 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function updateFinalResult() {
-        const tds = document.querySelectorAll(".quizFinalResult td");
+        const final = document.querySelector(".quizFinalResult");
+        const tds = final.querySelectorAll("td");
         tds[1].innerText = totalScore;
         tds[3].innerText = document.querySelectorAll(".quizBox .quiz").length;
         tds[5].innerText = totalAttempts;
         tds[7].innerText = correctCount;
     }
+});
 
-    // POPUP (after delay)
-    setTimeout(() => {
-        const popupHTML = `
+// POPUP Expand Full width Screen
+setTimeout(function () {
+      // Inject stylish popup HTML
+      const popupHTML = `
         <div class="popup-overlay" id="popup">
-            <div class="popup-box">
-                <h2>Do you want to Practice this Test?</h2>
-                <button class="btn-yes" id="yesBtn">Yes</button>
-                <button class="btn-no" id="noBtn">No</button>
-            </div>
-        </div>`;
-        document.body.insertAdjacentHTML('beforeend', popupHTML);
+          <div class="popup-box">
+            <h2>Do you want to Practice this Test?</h2>
+            <button class="btn-yes" id="yesBtn">Yes</button>
+            <button class="btn-no" id="noBtn">No</button>
+          </div>
+        </div>
+      `;
+    
+      document.body.insertAdjacentHTML('beforeend', popupHTML);
+    
+      // YES button click
+      document.getElementById('yesBtn').addEventListener('click', function () {
+        const quizDiv = document.querySelector('.quizz');
+        if (quizDiv) {
+          quizDiv.style.width = '100%';
+          quizDiv.style.background = 'white';
+          quizDiv.style.zIndex = '1';
+          quizDiv.style.position= 'absolute';
+          quizDiv.style.left= '0';
+          quizDiv.style.right= '0';
+          quizDiv.style.top= '0';
+          quizDiv.style.padding= '1rem';
+        }
+        closePopup();
+      });
+    
+      // NO button click
+      document.getElementById('noBtn').addEventListener('click', function () {
+        closePopup();
+      });
+    
+      // Close popup function
+      function closePopup() {
+        const popup = document.getElementById('popup');
+        if (popup) popup.remove();
+      }
+    }, 10000); // 10,000ms = 10 seconds
 
-        document.getElementById('yesBtn').addEventListener('click', () => {
-            const quizDiv = document.querySelector('.quizBox');
-            if (quizDiv) {
-                quizDiv.style.width = '100%';
-                quizDiv.style.background = 'white';
-                quizDiv.style.zIndex = '1';
-            }
-            document.getElementById('popup').remove();
-        });
 
-        document.getElementById('noBtn').addEventListener('click', () => {
-            document.getElementById('popup').remove();
-        });
-    }, 1000);
+// // /// //
+// QUIZ 1
+// // /// //
 
-    // QUIZ1: Number questions
-    document.querySelectorAll('.quiz1').forEach(quiz => {
-        let count = 1;
-        quiz.querySelectorAll('.q1q').forEach(q => {
-            q.innerHTML = `<b>${count++}</b> ${q.innerHTML}`;
-        });
+// Add question numbers
+document.querySelectorAll('.quiz1').forEach(quiz => {
+    let count = 1;
+    quiz.querySelectorAll('.q1q').forEach(q => {
+        q.innerHTML = `<b>${count++}</b> ${q.innerHTML}`;
     });
+});
 
-    // QUIZ1: Option click
-    document.querySelectorAll('.quiz1 .q1o li').forEach(option => {
-        option.addEventListener('click', function () {
-            if (this.classList.contains('q1c') || this.classList.contains('q1w')) return;
-            if (this.classList.contains('cq1')) {
-                this.classList.add('q1c');
-            } else {
-                this.classList.add('q1w');
-            }
-        });
+// Handle option click - correct/incorrect
+document.querySelectorAll('.quiz1 .q1o li').forEach(option => {
+    option.addEventListener('click', function () {
+        // Prevent re-clicking
+        if (this.classList.contains('q1c') || this.classList.contains('q1w')) return;
+
+        const allOptions = this.parentElement.querySelectorAll('li');
+       // allOptions.forEach(opt => opt.style.pointerEvents = 'none'); // Disable all options
+
+        if (this.classList.contains('cq1')) {
+            this.classList.add('q1c'); // Correct
+        } else {
+            this.classList.add('q1w'); // Wrong
+        }
     });
 });
