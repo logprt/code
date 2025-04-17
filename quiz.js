@@ -91,11 +91,11 @@ setTimeout(function () {
           quizDiv.style.width = '100%';
           quizDiv.style.background = 'white';
           quizDiv.style.zIndex = '1';
-          quizDiv.style.position= 'absolute';
-          quizDiv.style.left= '0';
-          quizDiv.style.right= '0';
-          quizDiv.style.top= '0';
-          quizDiv.style.padding= '1rem';
+          quizDiv.style.position = 'absolute';
+          quizDiv.style.left = '0';
+          quizDiv.style.right = '0';
+          quizDiv.style.top = '0';
+          quizDiv.style.padding = '1rem';
         }
         closePopup();
       });
