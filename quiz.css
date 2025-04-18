@@ -37,4 +37,12 @@ mjx-container[jax="CHTML"][display="true"] {  text-align: center;  display: inli
 /* General */
 .content h2 {font-size: 1.2rem;   background: #cee7e8; color: black; margin: 1rem 0; padding: 1rem; border-left: 1rem solid cadetblue;}
 
-
+/* Flashcard */
+.fcs {position: relative;width: 100%;height: 300px;line-height: 300px;margin: 1rem 0; box-shadow: 0 0 1rem 0 #ddd; border: none;text-align: center; border: none;}
+.fc {position: absolute;width: 100%;height: 100%;display: none;cursor: pointer;padding: 0;box-sizing: border-box;background: #f0f0f0;text-align: center;font-size: 18px;}
+.fcb {display: none; background: white;}
+.fcf {font-size: 125%;   color: crimson;   font-weight: 900;   background: #ffc;}
+.fcb {font-size: 125%; font-weight: 100;}
+.fcnav {text-align: center; background: aliceblue; padding: 1rem 0;}
+.fcnav button {display: inline-block;   font-size: 1rem;   background: white;   border: none;   width: 50px;   height: 50px;   border-radius: 50%;   color: black;   cursor: pointer;   font-weight: 900;}
+.fcnav button:hover {background: #09f; color: #fff;}
