@@ -75,8 +75,9 @@ setTimeout(function () {
       const popupHTML = `
         <div class="popup-overlay" id="popup">
           <div class="popup-box">
-            <h2>Do you want to Start this Test?</h2>
-            <button class="btn-yes" id="yesBtn">Yes</button>
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpe6ABsCCuF4hDX1_nhEfsWfesrXRhvVbyp8tFaopzNFePND1rCTRjLB06u59Kzr8CP-ww3nu7oKHX-r8Citn-KKwdaFOD94AwIJejnjngN2dBqR0TlcJpKFSn6malsSV6HSuRllGGHu8L5psnZQtmYfatscH0pUxe_w6QaouWuU2e4H8kWAuXAYDmO5eI/s1600/hourglass.gif">
+            <h6>Start Test</h6>
+            <a href="#" onclick="document.querySelector('.quizz').scrollIntoView({ behavior: 'smooth' }); return false;"><button class="btn-yes" id="yesBtn">Yes</button></a>
             <button class="btn-no" id="noBtn">No</button>
           </div>
         </div>
@@ -86,17 +87,6 @@ setTimeout(function () {
     
       // YES button click
       document.getElementById('yesBtn').addEventListener('click', function () {
-        const quizDiv = document.querySelector('.quizz');
-        if (quizDiv) {
-          quizDiv.style.width = '100%';
-          quizDiv.style.background = 'white';
-          quizDiv.style.zIndex = '1';
-          quizDiv.style.position = 'absolute';
-          quizDiv.style.left = '0';
-          quizDiv.style.right = '0';
-          quizDiv.style.top = '0';
-          quizDiv.style.padding = '1rem';
-        }
         closePopup();
       });
     
