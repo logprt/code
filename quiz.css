@@ -17,8 +17,8 @@
 /* POPUP */
 .popup-overlay {position: fixed;top: 0; left: 0;width: 100%; height: 100%;background: rgba(0, 0, 0, 0.6);display: flex;justify-content: center;align-items: center;z-index: 999;}
 .popup-box {background: #fff;padding: 30px;border-radius: 12px;text-align: center;max-width: 400px;width: 90%;box-shadow: 0 0 20px rgba(0,0,0,0.2);}
-.popup-box h2 {margin-bottom: 20px;}
-.popup-box button {padding: 10px 20px;margin: 0 10px;border: none;border-radius: 8px;font-size: 16px;cursor: pointer;}
+.popup-box h6 {font-size: 35px;   padding: 0;   margin: 1rem 0;   font-weight: 900;   font-family: verdana, courier, sans-serif;}
+.popup-box button {padding: 1rem 0;   margin: 1rem 0;   border: none;   border-radius: 50px;   font-size: 2rem;   cursor: pointer;   width: 150px;}
 .btn-yes {background-color: #28a745;color: white;}
 .btn-no {background-color: #dc3545;color: white;}
 
