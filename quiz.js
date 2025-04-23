@@ -77,7 +77,7 @@ setTimeout(function () {
           <div class="popup-box">
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpe6ABsCCuF4hDX1_nhEfsWfesrXRhvVbyp8tFaopzNFePND1rCTRjLB06u59Kzr8CP-ww3nu7oKHX-r8Citn-KKwdaFOD94AwIJejnjngN2dBqR0TlcJpKFSn6malsSV6HSuRllGGHu8L5psnZQtmYfatscH0pUxe_w6QaouWuU2e4H8kWAuXAYDmO5eI/s1600/hourglass.gif">
             <h6>Start Test</h6>
-            <a href="#" onclick="document.querySelector('.quizz').scrollIntoView({ behavior: 'smooth' }); return false;"><button class="btn-yes" id="yesBtn">Yes</button></a>
+            <a href="#practice-test-questions" onclick="document.querySelector('.quizz').scrollIntoView({ behavior: 'smooth' }); return false;"><button class="btn-yes" id="yesBtn">Yes</button></a>
             <button class="btn-no" id="noBtn">No</button>
           </div>
         </div>
