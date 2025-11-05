@@ -1,0 +1,85 @@
+.hero strong::before {content: "\1F4DD"; display: block; font-size: 10rem; margin: 0 auto;}
+.content p {text-align: justify !important;}
+.hide {display: none;}
+h1 {background: beige; text-align: center; padding: 1rem;}
+h2 {margin: 1rem 0 0 0 !important;}
+.start-btn {display: block; background: #FFEB3B; color: black !important; font-size: 3rem; text-align: center; max-width: 100%; margin: 2rem auto; padding: 1rem 0; border: 2px solid #FFC107; border-radius: 5px; box-shadow: 0 0 1rem 0 yellow; font-weight: 900; text-shadow: 1px 0px;}
+.start-btn:hover {background: #FF9800;}
+h1:first-letter, 
+h2:first-letter, 
+h3:first-letter, 
+h4:first-letter, 
+h5:first-letter, 
+h6:first-letter {font-size: 150%;}
+.quiz-tm {padding: 1rem;}
+.quiz-tm h3 {color: teal; font-size: 1.5rem;}
+.quiz-tm h4 {}
+.quiz-tm h5 {color: coral; font-size: 3rem; font-weight: 900;}
+.quiz-tm h5::before {content: "🏆";}
+.quiz-tm h6 {background: #ff14931f; color: deeppink; padding: 1rem; text-transform: uppercase; margin-bottom: 0 !important; border: 1px solid #aaa; border-left: 5px solid;}
+.quiz-tm h6 b {display: inline-block; background: deeppink; color: white; font-size: 1rem; width: 2rem; height: 2rem; line-height: 2rem; text-align: center; border-radius: 50%;}
+.quiz-tm .q-box {box-shadow: 0 0 1rem 0;}
+.quiz-tm .q {border: 1px solid #aaa; padding: 1rem;}
+.quiz-tm .q::first-letter {font-size: 150%;}
+.quiz-tm ul {padding: 0; margin: 0 0 3rem 0 !important;}
+.quiz-tm ul li {display: flex ; border: 1px solid #aaa; padding: 2rem 1rem; margin: 0 !important; align-items: center; gap: 5px; cursor: pointer; transition: transform 0.5s ease;}
+.quiz-tm li:nth-child(1)::before {content: "A";}
+.quiz-tm li:nth-child(2)::before {content: "B";}
+.quiz-tm li:nth-child(3)::before {content: "C";}
+.quiz-tm li:nth-child(4)::before {content: "D";}
+.quiz-tm li:nth-child(5)::before {content: "E";}
+.quiz-tm li:nth-child(1)::before, 
+.quiz-tm li:nth-child(2)::before, 
+.quiz-tm li:nth-child(3)::before, 
+.quiz-tm li:nth-child(4)::before, 
+.quiz-tm li:nth-child(5)::before {border: 1px solid; display: inline-block; height: 2rem; line-height: 2rem; text-align: center; margin-right: 5px; border-radius: 50%; width: 2rem; padding: 0 8px !important; color: #999; box-shadow: 1px 1px;}
+.quiz-tm .correct {}
+.quiz-tm .red {color: pink; text-decoration: line-through; animation: wiggle 0.5s ease; background: #fff;}
+.quiz-tm .green {animation: pulse 0.5s ease; background: #ffc;}
+.quiz-tm .red::before {content: "⨉" !important; color: red !important;}
+.quiz-tm .green::before {content: "✓" !important; background: teal; color: white !important; border: 1px solid teal !important;}
+.quiz-tm .red::before,.quiz-tm .green::before {}
+.quiz-tm .st {color: #999 !important; text-align: justify !important;}
+.quiz-tm .q p {color: black !important;}    
+.result-btn {display: block; background: #09f; color: white; border: 1px solid #09f; font-size: 2rem; width: 100%; padding: 2rem 0; border-radius: 50px; cursor: pointer;}
+.result-table {}
+.result-table h6 {background: teal; padding: 1rem; color: white; font-size: 1.5rem; margin-bottom: 0;}
+.result-table table {margin-top: 0 !important; max-width: 100% !important;}
+.result-table td {padding: 1rem !important;}
+.result-table td:nth-child(1) {}
+.result-table td:nth-child(2) {}
+.result-table .std {background: black; text-align: center; border: 1px solid black;}
+.result-table .std p {border: 1px solid wheat; width: 200px; margin: 2rem auto; height: 200px; line-height: 200px; border-radius: 50%; box-shadow: 0 0 1rem 0 white; text-align: center !important; color: wheat; font-size: 2.5rem; font-weight: 900;}
+.result-table .std i {color: #606060;}
+
+.confirm-modal {position: fixed; top: 0;  left: 0; width: 100%;  height: 100%; display: flex;  justify-content: center;  align-items: center; z-index: 9999;}
+.confirm-modal .modal-overlay {position: absolute; top: 0;  left: 0; width: 100%;  height: 100%; background: rgba(0, 0, 0, 0.6);}
+.confirm-modal .modal-box {position: relative; background: #fff; padding: 20px 30px; border-radius: 10px; text-align: center; z-index: 10000; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);}
+.confirm-modal .modal-actions {margin-top: 15px; display: flex;  justify-content: space-around;}
+.confirm-modal button {cursor: pointer;  display: inline-block;  width: 50%;  border: 1px solid white;  padding: 1rem 0;  font-size: 1rem;}
+.confirm-modal .yes-btn {background: #28a745; color: white;}
+.confirm-modal .no-btn {background: #dc3545; color: white;}
+
+@keyframes wiggle {
+0%, 100% { transform: translateX(0);}
+15%, 45%, 75% { transform: translateX(-10px);}
+30%, 60%, 90% { transform: translateX(10px);}
+}
+@keyframes pulse {
+  0%   { transform: scale(1);}
+  50%  { transform: scale(1.1);}
+  100% { transform: scale(1);}
+}
+.breath {
+  animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1);}
+  50% { transform: scale(1.1);}
+}
+
+
+@media (min-width: 300px) {
+.container {padding: 0 !important;}
+}
