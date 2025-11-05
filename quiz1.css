@@ -41,7 +41,7 @@ h6:first-letter {font-size: 150%;}
 .quiz-tm .red::before,.quiz-tm .green::before {}
 .quiz-tm .st {color: #999 !important; text-align: justify !important;}
 .quiz-tm .q p {color: black !important;}    
-.result-btn {display: block; background: #09f; color: white; border: 1px solid #09f; font-size: 2rem; width: 100%; padding: 2rem 0; border-radius: 50px; cursor: pointer;}
+.result-btn {background: #09f; color: white; border: 1px solid #09f; font-size: 2rem; width: 100%; padding: 2rem 0; border-radius: 50px; cursor: pointer;}
 .result-table {}
 .result-table h6 {background: teal; padding: 1rem; color: white; font-size: 1.5rem; margin-bottom: 0;}
 .result-table table {margin-top: 0 !important; max-width: 100% !important;}
